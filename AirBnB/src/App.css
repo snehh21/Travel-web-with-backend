@@ -1,0 +1,79 @@
+/* Header Margin */
+header {
+  margin-top: -10px;
+}
+
+/* Search Section Styling */
+.search-section {
+  background-color: #ffeef0; /* Light red background */
+  border: 1px solid #f8d7da; /* Light red border */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling for Check-In, Check-Out, and Guests */
+.search-heading {
+  font-weight: bold;
+  color: #e63946; /* Dark red color */
+}
+
+/* Center alignment for the columns */
+.search-column {
+  text-align: center;
+}
+
+/* Smaller Search Button Styling */
+.search-button {
+  background-color: #e63946;
+  color: white;
+  border-radius: 10%; /* Make it circular */
+  padding: 8px 12px;  /* Smaller padding */
+  font-size: 1.2rem;  /* Smaller font size */
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effect for search button */
+.search-button:hover {
+  background-color: #d62828;
+  cursor: pointer;
+}
+
+/* Search Icon */
+.search-icon {
+  font-size: 1.4rem; /* Adjusted icon size */
+}
+
+/* Add custom styles */
+.card {
+  border-radius: 10px;
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e63946; /* Dark red color for the title */
+}
+
+.form-control {
+  border-radius: 8px;
+}
+
+.btn-primary {
+  background-color: #e63946;
+  border: none;
+  border-radius: 8px;
+}
+
+footer {
+  margin-bottom: 0;  /* No margin below the footer */
+}
+.container {
+  padding-bottom: 0;
+}
+body {
+  margin-bottom: 0;
+}

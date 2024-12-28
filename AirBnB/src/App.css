@@ -68,12 +68,19 @@ header {
   border-radius: 8px;
 }
 
-footer {
-  margin-bottom: 0;  /* No margin below the footer */
-}
 .container {
   padding-bottom: 0;
 }
+
+html, body {
+  height: 100%; /* Ensure the body takes up the full height of the viewport */
+  margin: 0;    /* Remove any default margin */
+}
 body {
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column; /* Make the body a flex container */
+}
+
+footer {
+  margin-top: auto; /* Push the footer to the bottom */
 }

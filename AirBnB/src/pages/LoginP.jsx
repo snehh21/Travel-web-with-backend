@@ -1,16 +1,33 @@
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css"; // Make sure Bootstrap is imported
+import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginP() {
-  // State to manage form inputs
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login Attempted with:", { username, password });
-    // Add your authentication logic here
+    axios
+      .post("http://localhost:3001/login", { email, password })
+      .then((result) => {
+        console.log("Response data:", result.data);
+        if (result.data.status === "success") {
+          navigate("/"); // Redirect to the main page
+        } else {
+          alert(result.data.message); // Show an error message
+        }
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(`Error: ${error.response.data.message}`);
+        } else {
+          console.error("Error during login:", error);
+          alert("An unexpected error occurred.");
+        }
+      });
   };
 
   return (
@@ -21,23 +38,20 @@ export default function LoginP() {
             <div className="card-body">
               <h3 className="card-title text-center">Login</h3>
               <form onSubmit={handleSubmit}>
-                {/* Username Input */}
                 <div className="mb-3">
-                  <label htmlFor="username" className="form-label">
-                    Username
+                  <label htmlFor="email" className="form-label">
+                    Email
                   </label>
                   <input
-                    type="text"
+                    type="email"
                     className="form-control"
-                    id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Enter your username"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
                     required
                   />
                 </div>
-
-                {/* Password Input */}
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">
                     Password
@@ -52,8 +66,6 @@ export default function LoginP() {
                     required
                   />
                 </div>
-
-                {/* Submit Button */}
                 <button type="submit" className="btn btn-primary w-100">
                   Login
                 </button>

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; 
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom';
 
 export default function RegisterP() {
   // State to manage form inputs
@@ -7,13 +9,22 @@ export default function RegisterP() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate= useNavigate()
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Registration Attempted with:", { username, email, password, confirmPassword });
-    // Add your registration logic here
+  
+    axios.post('http://localhost:3001/register', { username, email, password })
+      .then((result) => {
+        console.log(result);
+        navigate('/login');
+      })
+      .catch((error) => {
+        console.error("Error during registration:", error);
+      });
   };
+  
 
   return (
     <div className="container mt-5">

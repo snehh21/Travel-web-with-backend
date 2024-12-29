@@ -1,5 +1,6 @@
+
 import { Routes, Route } from 'react-router-dom';
-import IndexP from './pages/IndexP'; // Import IndexP component
+import IndexP from './pages/IndexP'
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginP from './pages/LoginP';
